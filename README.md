@@ -27,3 +27,6 @@ SmartDice is an open-source JavaFX application in progress that uses an object-o
 - Database infrastructure
 - Toggle Smart function using ML in the background (Long Term Short Memory Algorithm)
 - Looking into other models such as Generative adversarial network (GAN)
+
+# Screenshot
+![drive-image](https://drive.google.com/uc?export=view&id=1IR4xdNNL6ltOyGkCots2JP0USK5riyrW)
