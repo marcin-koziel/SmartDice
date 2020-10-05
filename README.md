@@ -12,6 +12,7 @@ SmartDice is an open-source JavaFX application in progress that uses an object-o
 - User-friendly settings for the round(s)
 - View real-time stats under the results of rolling
 
+# Future Goals
 ### Short-term goals
 - Export data in CSV format
 - Functional create, remove, sign-in, and sign-out of user profile(s)
