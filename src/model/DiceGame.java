@@ -129,6 +129,10 @@ public class DiceGame {
         return multiplier;
     }
 
+    public String getMultiplierStrFmt() {
+        return String.format("%.4f", multiplier);
+    }
+
     private double setPayout(double betAmount, double multiplier) {
         return betAmount * multiplier;
     }
@@ -145,12 +149,10 @@ public class DiceGame {
             profitTemp = payout - betAmount;
             profitTemp -= profitTemp *2;
         }
-//        System.out.println(profitTemp);
         return profitTemp;
     }
 
     public double getProfit() {
-        System.out.println("--- In DiceGame: " + profit);
         return profit;
     }
     

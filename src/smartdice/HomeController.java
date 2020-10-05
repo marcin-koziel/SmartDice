@@ -104,7 +104,7 @@ public class HomeController implements Initializable {
         homeTable.setPlaceholder(new Label("No Record of Dice Games found."));
         idColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
         timeColumn.setCellValueFactory(new PropertyValueFactory<>("dateFmt"));
-        multiplierColumn.setCellValueFactory(new PropertyValueFactory<>("multiplier"));
+        multiplierColumn.setCellValueFactory(new PropertyValueFactory<>("multiplierStrFmt"));
         gameColumn.setCellValueFactory(new PropertyValueFactory<>("rollOverNo"));
         resultColumn.setCellValueFactory(new PropertyValueFactory<>("rollWin"));
         rollColumn.setCellValueFactory(new PropertyValueFactory<>("diceRoll"));
