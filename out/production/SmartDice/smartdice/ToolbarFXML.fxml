@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Rectangle?>
+
+<StackPane fx:id="toolBarMain" maxHeight="75.0" minHeight="75.0" minWidth="615.0" stylesheets="@smartdicefxml.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="smartdice.ToolbarController">
+   <children>
+      <GridPane fx:id="toolBarGridPane" maxWidth="250.0" StackPane.alignment="CENTER_RIGHT">
+         <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="25.0" minWidth="30.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="25.0" minWidth="30.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="10.0" prefWidth="80.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="20.0" percentWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="20.0" prefWidth="100.0" />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+         </rowConstraints>
+         <children>
+            <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+               <image>
+                  <Image url="@../img/Chat Icon.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="21.0" fitWidth="19.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="CENTER">
+               <image>
+                  <Image url="@../img/Notification.png" />
+               </image>
+               <GridPane.margin>
+                  <Insets bottom="5.0" />
+               </GridPane.margin>
+            </ImageView>
+            <Separator maxHeight="30.0" maxWidth="30.0" orientation="VERTICAL" prefHeight="30.0" GridPane.columnIndex="2" GridPane.halignment="CENTER" />
+            <StackPane fx:id="playerProfileNameNode" maxHeight="35.0" GridPane.columnIndex="3">
+               <children>
+                  <Label fx:id="profileNameLabel" mouseTransparent="true" text="ProfileName" StackPane.alignment="CENTER">
+                     <cursor>
+                        <Cursor fx:constant="DEFAULT" />
+                     </cursor>
+                     <StackPane.margin>
+                        <Insets right="10.0" />
+                     </StackPane.margin></Label>
+                  <ImageView fx:id="profileNameImg" fitHeight="7.0" fitWidth="11.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true" StackPane.alignment="CENTER_RIGHT">
+                     <image>
+                        <Image url="@../img/small-down.png" />
+                     </image>
+                     <cursor>
+                        <Cursor fx:constant="DEFAULT" />
+                     </cursor>
+                  </ImageView>
+               </children>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </StackPane>
+            <ImageView fitHeight="38.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="5" GridPane.halignment="CENTER">
+               <image>
+                  <Image url="@../img/Avatar.png" />
+               </image>
+               <GridPane.margin>
+                  <Insets />
+               </GridPane.margin>
+            </ImageView>
+            <AnchorPane fx:id="playerProfileListNode" disable="true" translateY="60.0" visible="false" GridPane.columnIndex="3" GridPane.valignment="TOP">
+               <children>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="20.0" rotate="45.0" stroke="#eeeeee" strokeType="INSIDE" translateX="50.0" translateY="-5.0" width="20.0" />
+                  <StackPane fx:id="stackPaneToolBarItems" minHeight="20.0" minWidth="120.0">
+                     <children>
+                        <VBox fx:id="vboxToolBarItems" alignment="CENTER" spacing="15.0">
+                           <StackPane.margin>
+                              <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
+                           </StackPane.margin>
+                        </VBox>
+                     </children>
+                  </StackPane>
+                  <Rectangle arcHeight="4.0" arcWidth="1.0" fill="WHITE" height="19.0" rotate="45.0" stroke="#eeeeee" strokeMiterLimit="1.0" strokeType="INSIDE" strokeWidth="0.0" translateX="50.0" translateY="-5.0" width="19.0" />
+               </children>
+            </AnchorPane>
+         </children>
+         <StackPane.margin>
+            <Insets right="20.0" />
+         </StackPane.margin>
+      </GridPane>
+      <GridPane alignment="CENTER" maxWidth="230.0" StackPane.alignment="CENTER_LEFT">
+         <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+         </rowConstraints>
+         <children>
+            <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER">
+               <image>
+                  <Image url="@../img/icon_search.png" />
+               </image>
+            </ImageView>
+            <TextField disable="true" maxWidth="200.0" promptText="Search IDs, Users or Probablity Rates" GridPane.columnIndex="1" />
+         </children>
+      </GridPane>
+   </children>
+</StackPane>

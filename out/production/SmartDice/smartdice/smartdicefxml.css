@@ -1,0 +1,61 @@
+/*
+ * Empty Stylesheet file.
+ */
+
+.mainFxmlClass {
+    -fx-background: #F0F0F7;
+}
+
+#labels {
+    -fx-background-color: black;
+}
+
+#sideBarNavMain {
+    -fx-background-color: #43425D;
+}
+
+#navBarSideHead {
+    -fx-background-color: rgba(0,0,0,0.1);
+}
+
+#navBarSideHead .label{
+    -fx-text-fill: #FFF;
+    -fx-font-size: 15;
+    -fx-font-weight: bold;
+}
+
+#navBarSideItems ToggleButton{
+    -fx-background-insets: 5 0 5 0;
+    -fx-font-size: 15;
+    -fx-text-fill: #FFF;
+    -fx-background-color: rgba(0,0,0,0);
+}
+
+/*#NavBarContent AnchorPane image{
+    
+}*/
+
+#navBarSideItems AnchorPane:hover{
+    -fx-font-size: 20;
+}
+
+.ipane:hover Image{
+    -fx-background-color: rgba(0,0,0,0.5);
+}
+
+#navBarTopMain {
+    -fx-background-color: #FFF;
+}
+
+#toolBarMain {
+    -fx-background-color: #fff;
+}
+
+#stackPaneToolBarItems {
+    -fx-background-color: #fff;
+    -fx-border-color: #eee;
+}
+
+#homeTable .table-column {
+    -fx-alignment: CENTER;
+}
