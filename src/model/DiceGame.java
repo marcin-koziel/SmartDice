@@ -47,11 +47,30 @@ public class DiceGame {
     // Intended to return cloned object for reference
     public DiceGame getDiceGameSettings(){
         DiceGame diceGameClone = new DiceGame();
+        diceGameClone.rollWin = true; // ex
         diceGameClone.betAmount = this.betAmount;
         diceGameClone.rollOverNo = this.rollOverNo;
         diceGameClone.rollOverBool = this.rollOverBool;
         diceGameClone.maxRoll = this.maxRoll;
         return diceGameClone;
+    }
+
+    // TODO: Look into validating methods with args within
+    public void generateSettings(){
+        //TODO: Work around calling Thread.sleep() and having timeStamp unique
+        try {
+            Thread.sleep(1);
+        } catch (InterruptedException e) {
+        }
+        dice = new Dice();
+        timeStamp = setTimeStamp();
+        id = setId();
+        multiplier = setMultiplier(maxRoll, rollOverNo, rollOverBool);
+        payout = setPayout(betAmount, multiplier);
+        winChance = setWinChance(maxRoll, multiplier);
+        diceRoll = setDiceRoll(dice, maxRoll);
+        this.rollWin = true;
+        profit = setProfit(betAmount, payout);
     }
     
     // TODO: Look into validating methods with args within

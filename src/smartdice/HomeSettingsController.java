@@ -128,7 +128,7 @@ public class HomeSettingsController implements Initializable {
     }
 
     private void updateAllTextFields() {
-        diceGameTemp.generateResult();
+        diceGameTemp.generateSettings();
         setInputBetAmount(String.format("%.8f", diceGameTemp.getBetAmount()));
         setProfitOnWin(String.format("%.8f", diceGameTemp.getProfit()));
         setInputRollLoop(String.format("%d", rollLoopTemp));
