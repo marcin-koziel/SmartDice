@@ -165,8 +165,8 @@ public class DiceGame {
         if(isRollWin()){
             profitTemp = payout - betAmount;
         } else {
-            profitTemp = payout - betAmount;
-            profitTemp -= profitTemp *2;
+            profitTemp = getBetAmount() * 2;
+            profitTemp = betAmount - profitTemp;
         }
         return profitTemp;
     }

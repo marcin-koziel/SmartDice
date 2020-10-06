@@ -76,8 +76,8 @@ public class HomeSettingsController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         diceGameTemp = SmartDiceGame.getInstance().getActiveDiceGame().getDiceGameSettings();
         rollLoopTemp = SmartDiceGame.getInstance().getRollLoop();
-        updateAllTextFields();
         setListeners();
+        updateAllTextFields();
     }
 
     public void setHomeFields(StackPane stackPane) {
