@@ -2,6 +2,10 @@ package model;
 
 import java.util.ArrayList;
 
+/**
+ *
+ * @author Marcin Koziel
+ */
 public class DiceProfile {
 
 	private ArrayList<DiceProfile> smartDicePlayers = new ArrayList<>();

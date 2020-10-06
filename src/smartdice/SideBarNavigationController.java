@@ -27,9 +27,8 @@ import javafx.scene.shape.Rectangle;
 import javafx.util.Duration;
 
 /**
- * FXML Controller class
  *
- * @author chuko
+ * @author Marcin Koziel
  */
 public class SideBarNavigationController implements Initializable {
 

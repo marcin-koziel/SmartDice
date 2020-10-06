@@ -15,8 +15,10 @@ import org.json.JSONArray;
 import org.json.JSONTokener;
 import org.json.JSONObject;
 
-
-
+/**
+ *
+ * @author Marcin Koziel
+ */
 public class ProfileContainer {
 
     private final int STRING_LENGTH = 15;

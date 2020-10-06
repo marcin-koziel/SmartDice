@@ -12,6 +12,10 @@ import org.json.JSONObject;
 import org.json.JSONTokener;
 import smartdice.SmartDiceController;
 
+/**
+ *
+ * @author Marcin Koziel
+ */
 public class SmartDiceGame {
 
 

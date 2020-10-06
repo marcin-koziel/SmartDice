@@ -7,7 +7,7 @@ package model;
 
 /**
  *
- * @author Chukozy
+ * @author Marcin Koziel
  */
 public interface SmartDicePaths {
     

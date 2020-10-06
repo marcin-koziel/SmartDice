@@ -34,9 +34,8 @@ import model.PlayerProfile;
 import model.SmartDiceGame;
 
 /**
- * FXML Controller class
  *
- * @author Chukozy
+ * @author Marcin Koziel
  */
 public class SmartDiceController implements Initializable {
 

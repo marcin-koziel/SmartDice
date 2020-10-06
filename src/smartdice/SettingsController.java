@@ -10,9 +10,8 @@ import java.util.ResourceBundle;
 import javafx.fxml.Initializable;
 
 /**
- * FXML Controller class
  *
- * @author Chukozy
+ * @author Marcin Koziel
  */
 public class SettingsController implements Initializable {
 

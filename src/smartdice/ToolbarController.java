@@ -24,9 +24,8 @@ import model.PlayerProfile;
 import model.SmartDiceGame;
 
 /**
- * FXML Controller class
  *
- * @author chuko
+ * @author Marcin Koziel
  */
 public class ToolbarController implements Initializable {
 

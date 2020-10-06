@@ -2,6 +2,10 @@ package model;
 
 import java.text.Format;
 
+/**
+ *
+ * @author Marcin Koziel
+ */
 public class PlayerProfile {
 
     // private int id;

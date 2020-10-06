@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author chuko
+ * @author Marcin Koziel
  */
 public class PlayerStat {
     

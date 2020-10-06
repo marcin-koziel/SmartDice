@@ -14,7 +14,7 @@ import javafx.fxml.FXMLLoader;
 
 /**
  *
- * @author Chukozy
+ * @author Marcin Koziel
  */
 public class SmartDice extends Application {
 

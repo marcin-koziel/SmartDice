@@ -7,6 +7,10 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 import org.json.JSONTokener;
 
+/**
+ *
+ * @author Marcin Koziel
+ */
 public class Dice {
     
     private double diceRoll;
