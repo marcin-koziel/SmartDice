@@ -1,7 +1,5 @@
 package model;
 
-import java.text.Format;
-
 /**
  *
  * @author Marcin Koziel

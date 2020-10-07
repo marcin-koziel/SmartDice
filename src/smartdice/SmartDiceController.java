@@ -19,17 +19,13 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ListView;
 import javafx.scene.control.ToggleButton;
-import javafx.scene.control.ToggleGroup;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
-import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
-import javafx.util.Duration;
 import model.PlayerProfile;
 import model.SmartDiceGame;
 
@@ -49,7 +45,6 @@ public class SmartDiceController implements Initializable {
     private Font x3;
     @FXML
     private Color x4;
-
 
     private ArrayList<AnchorPane> navBarPaneList;
     private ArrayList<ToggleButton> navBarList;
