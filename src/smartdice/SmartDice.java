@@ -13,6 +13,10 @@ import javafx.scene.layout.*;
 import javafx.fxml.FXMLLoader;
 
 /**
+ * SmartDice is an open-source JavaFX application in progress that uses an object-oriented approach
+ * for a generation of data, in which case is "rolling dice" and updating user(s) profile data accordingly.
+ * The "Smart" aspect is to implement a user-friendly feature that uses Machine Learning (ML) to explore the
+ * realm of probability and display it in a human-interpretable manner when enabled.
  *
  * @author Marcin Koziel
  */
