@@ -75,22 +75,25 @@ public class SideBarNavigationController implements Initializable {
     private ObservableList<AnchorPane> navBarSideObserv;
     private ListView<AnchorPane> navBarSideList;
 
+    // Declared controller(s) for sideBarNavigation pane
     private HomeController homeController;
     private DashboardController dashboardController;
     private NotificationsController notificationsController;
     private CalendarController calendarController;
     private SettingsController settingsController;
 
+    // Declared pane(s) for sideBarNavigation pane
     private AnchorPane homePane;
     private AnchorPane dashboardPane;
     private AnchorPane notificationsPane;
     private AnchorPane calendarPane;
     private AnchorPane settingsPane;
 
+    // Declared primary instance to be referenced
     private static SideBarNavigationController instance;
 
     /**
-     * Initializes the controller class.
+     * Initializes the controller class
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -103,6 +106,9 @@ public class SideBarNavigationController implements Initializable {
         initSideNavBar();
     }
 
+    /**
+     * @return Returns the primary sideBarNavigation Controller to be referenced
+     */
     public static SideBarNavigationController getInstance(){
         return instance;
     }
