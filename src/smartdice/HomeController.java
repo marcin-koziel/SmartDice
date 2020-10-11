@@ -120,6 +120,7 @@ public class HomeController implements Initializable {
             viewDiceGameList.add(SmartDiceGame.getInstance().getCurrentPlayerProfile().getPlayerStat().getLastDiceGameRound());
             homeTable.sort();
         } else {
+            //TODO: throw a error message to client
             throw new RuntimeException();
         }
     }

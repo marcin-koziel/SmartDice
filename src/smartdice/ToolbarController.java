@@ -40,6 +40,14 @@ public class ToolbarController implements Initializable {
 
     private static ToolbarController instance;
 
+    Label profile;
+    Label signIn;
+    Label signOut;
+
+//    // --- Debugging ----
+//    PlayerProfile developerProfile =
+//            SmartDiceGame.getInstance().getProfileContainer().createPlayerProfile("Developer");
+
     /**
      * Initializes the controller class.
      */
@@ -52,10 +60,6 @@ public class ToolbarController implements Initializable {
     public static ToolbarController getInstance(){
         return instance;
     }
-
-//    public void addLabel() {
-//
-//    }
 
     private void updateNameLabel(String toolbarName) {
         profileNameLabel.setText(toolbarName);
@@ -75,36 +79,42 @@ public class ToolbarController implements Initializable {
         developerLbl.setCursor(Cursor.HAND);
         developerLbl.setStyle("-fx-font-weight: bold;");
         developerLbl.setOnMousePressed(l->{
-            PlayerProfile developerProfile;
-            developerProfile = SmartDiceGame.getInstance().getProfileContainer().createPlayerProfile("Developer");
-            developerProfile.setName("ProfileName");
-            SmartDiceGame.getInstance().getProfileContainer().createPlayerProfile("Marcin");
-            SmartDiceGame.getInstance().getProfileContainer().createPlayerProfile("Martha");
-            SmartDiceGame.getInstance().getProfileContainer().createPlayerProfile("Paul");
-            SmartDiceGame.getInstance().setCurrentPlayerProfile(developerProfile);
+            SmartDiceGame.getInstance().setCurrentPlayerProfile(
+                    SmartDiceGame.getInstance().getProfileContainer().getPlayerProfile("Developer"));
             signIn();
-            SmartDiceGame.getInstance().getProfileContainer().writeProfileContainer();
-            SmartDiceGame.getInstance().getProfileContainer().readPlayerContainer();
+
         });
+
         vboxToolBarItems.getChildren().clear();
         vboxToolBarItems.getChildren().addAll(usernameLbl, usernameTxtfld, passwordLbl, passwordTxtfld, developerLbl);
     }
 
-    private void signIn(){
+    // TODO: More functional with arg(s)
+    private void signIn() {
+        SmartDiceController.getInstance().updateSmartDiceWindow();
+    }
+    // TODO: More functional with arg(s)
+    private void signOut() {
+        SmartDiceGame.getInstance().setCurrentPlayerProfile(new PlayerProfile());
         SmartDiceController.getInstance().updateSmartDiceWindow();
     }
 
     private void setUserOptions(String toolbarName) {
         updateNameLabel(toolbarName);
 
-        Label profile = new Label("Profile");
-        Label signOut = new Label("Sign Out");
+        profile = new Label("Profile");
+        signOut = new Label("Sign Out");
 
         profile.setCursor(Cursor.HAND);
         signOut.setCursor(Cursor.HAND);
 
         vboxToolBarItems.getChildren().clear();
         vboxToolBarItems.getChildren().addAll(profile, signOut);
+
+        // TODO: Throw into setListeners
+        signOut.setOnMousePressed(l->{
+            signOut();
+        });
     }
 
     public void updateToolbar(PlayerProfile loadedProfile){
@@ -144,8 +154,6 @@ public class ToolbarController implements Initializable {
                 }
             }
         });
-
-
 
     }
 
