@@ -2,6 +2,7 @@ package model;
 
 /**
  *
+ *
  * @author Marcin Koziel
  */
 public class Dice {

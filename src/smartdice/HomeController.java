@@ -113,18 +113,27 @@ public class HomeController implements Initializable {
     }
 
     @FXML
-    private void setRollDice(MouseEvent event) {
-        SmartDiceGame.getInstance().playRound();
-        updateStats();
-        viewDiceGameList.add(SmartDiceGame.getInstance().getCurrentPlayerProfile().getPlayerStat().getLastDiceGameRound());
-        homeTable.sort();
+    private void setRollDice(MouseEvent event) throws RuntimeException {
+        if (SmartDiceGame.getInstance().isPlayable()) {
+            SmartDiceGame.getInstance().playRound();
+            updateStats();
+            viewDiceGameList.add(SmartDiceGame.getInstance().getCurrentPlayerProfile().getPlayerStat().getLastDiceGameRound());
+            homeTable.sort();
+        } else {
+            throw new RuntimeException();
+        }
     }
 
     @FXML
     private void setAutoRoll(MouseEvent event) {
-        for (int i = 0; i < SmartDiceGame.getInstance().getRollLoop(); i++) {
-            setRollDice(event);
+        try {
+            for (int i = 0; i < SmartDiceGame.getInstance().getRollLoop(); i++) {
+                setRollDice(event);
+            }
+        } catch (RuntimeException e) {
+            //TODO: throw a error message to client
         }
+
     }
 
     @FXML

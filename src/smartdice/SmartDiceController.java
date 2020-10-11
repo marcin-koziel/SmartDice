@@ -80,20 +80,20 @@ public class SmartDiceController implements Initializable {
         setNavBarItem.getChildren().setAll(pane);
     }
 
-    //
+    // Initialize 2 panes and controllers for Toolbar, Sidebarnav.
     private void initSmartDiceWindow() {
         sideBarNavMain = (VBox) getPaneFXMLPath("SideBarNavigationFXML.fxml");
         sideBarNavigationController = SideBarNavigationController.getInstance();
         toolbarMain = (StackPane) getPaneFXMLPath("ToolbarFXML.fxml");
         toolbarController = ToolbarController.getInstance();
-
+        // Setting border anchor panes left and top
         smartDiceMain.setLeft(sideBarNavMain);
         smartDiceInteractive.setTop(toolbarMain);
-
+        // Update view to current model properties
         updateSmartDiceWindow();
     }
 
-    // TODO: Change name!
+    // Updates relevant panes to current model properties
     public void updateSmartDiceWindow() {
         PlayerProfile loadProfile = SmartDiceGame.getInstance().getCurrentPlayerProfile();
 
@@ -114,6 +114,7 @@ public class SmartDiceController implements Initializable {
 
     }
 
+    // Used to crunch down fxml loader code and return the pane based on fxmlPath
     private Pane getPaneFXMLPath(String fxmlPath) {
         Pane pane = null;
         FXMLLoader controller = null;
@@ -132,7 +133,4 @@ public class SmartDiceController implements Initializable {
         return pane;
     }
 
-    private void setListeners() {
-
-    }
 }

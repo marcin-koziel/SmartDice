@@ -59,6 +59,13 @@ public class SmartDiceGame {
         updateSmartDiceGame();
     }
 
+    public boolean isPlayable(){
+        if (currentPlayerProfile.getBalance() >= currentDiceGame.getBetAmount()){
+            return true;
+        }
+        return false;
+    }
+
     public void updateSmartDiceGame() {
         currentPlayerProfile.updateBalance();
     }
