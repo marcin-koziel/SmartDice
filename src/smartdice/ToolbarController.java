@@ -7,6 +7,7 @@ import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Cursor;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
@@ -40,9 +41,7 @@ public class ToolbarController implements Initializable {
 
     private static ToolbarController instance;
 
-    Label profile;
-    Label signIn;
-    Label signOut;
+
 
 //    // --- Debugging ----
 //    PlayerProfile developerProfile =
@@ -71,26 +70,23 @@ public class ToolbarController implements Initializable {
         Label usernameLbl = new Label("Username");
         Label passwordLbl = new Label("Password");
 
-        TextField usernameTxtfld = new TextField();
-        TextField passwordTxtfld = new TextField();
+        TextField usernameTxtfld = new TextField("Developer");
+        TextField passwordTxtfld = new TextField("1234");
 
-        // --- DEBUGGING ---
-        Label developerLbl = new Label("Sign In as Developer");
-        developerLbl.setCursor(Cursor.HAND);
-        developerLbl.setStyle("-fx-font-weight: bold;");
-        developerLbl.setOnMousePressed(l->{
-            SmartDiceGame.getInstance().setCurrentPlayerProfile(
-                    SmartDiceGame.getInstance().getProfileContainer().getPlayerProfile("Developer"));
-            signIn();
+        Button signIn = new Button("Sign In");
 
+        signIn.setOnMousePressed(l->{
+            signIn(usernameTxtfld.getText(), passwordTxtfld.getText());
         });
 
         vboxToolBarItems.getChildren().clear();
-        vboxToolBarItems.getChildren().addAll(usernameLbl, usernameTxtfld, passwordLbl, passwordTxtfld, developerLbl);
+        vboxToolBarItems.getChildren().addAll(usernameLbl, usernameTxtfld, passwordLbl, passwordTxtfld, signIn);
     }
 
     // TODO: More functional with arg(s)
-    private void signIn() {
+    private void signIn(String username, String password) {
+        PlayerProfile playerProfile = SmartDiceGame.getInstance().getProfileContainer().getPlayerProfile(username, password);
+        SmartDiceGame.getInstance().setCurrentPlayerProfile(playerProfile);
         SmartDiceController.getInstance().updateSmartDiceWindow();
     }
     // TODO: More functional with arg(s)
@@ -102,8 +98,8 @@ public class ToolbarController implements Initializable {
     private void setUserOptions(String toolbarName) {
         updateNameLabel(toolbarName);
 
-        profile = new Label("Profile");
-        signOut = new Label("Sign Out");
+        Label profile = new Label("Profile");
+        Label signOut = new Label("Sign Out");
 
         profile.setCursor(Cursor.HAND);
         signOut.setCursor(Cursor.HAND);
@@ -137,7 +133,6 @@ public class ToolbarController implements Initializable {
 
     private void setListeners() {
 
-        //
         playerProfileNameNode.setOnMousePressed(l -> {
             togglePlayerProfileList();
         });

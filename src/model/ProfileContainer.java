@@ -23,16 +23,26 @@ public class ProfileContainer {
 
     public PlayerProfile createPlayerProfile(String username) {
         PlayerProfile newPlayerProfile = new PlayerProfile(username);
-        if (getPlayerProfile(username) == null) {
+        if (isPlayerProfile(username) == false) {
             playerProfiles.add(newPlayerProfile);
             return newPlayerProfile;
         }
         return null;
     }
 
-    public PlayerProfile getPlayerProfile(String username) {
+    public Boolean isPlayerProfile(String username) {
         for (PlayerProfile playerProfile : playerProfiles) {
             if (playerProfile.getUsername().equals(username)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public PlayerProfile getPlayerProfile(String username, String password) {
+        for (PlayerProfile playerProfile : playerProfiles) {
+            if (playerProfile.getUsername().equals(username)) {
+                if (playerProfile.getPassword().equals(password))
                 return playerProfile;
             }
         }
