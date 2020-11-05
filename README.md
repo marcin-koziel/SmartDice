@@ -1,8 +1,7 @@
 # SmartDice
 
 ## Summary
-SmartDice is an open-source JavaFX application in progress that uses an object-oriented approach for a generation of data, in which case is "rolling dice" and updating user(s) profile data accordingly.
- The "Smart" aspect is to implement a user-friendly feature that uses Machine Learning (ML) to explore the realm of probability and display it in a human-interpretable manner when enabled.
+SmartDice is an open-source JavaFX application in production that uses an object-oriented approach for generating data, in which case is "rolling dice" and updating users' profile data accordingly. The "Smart" aspect is to implement a user-friendly feature that uses Machine Learning (ML) to explore the realm of probability and display it in a human-interpretable manner when enabled. Upon further development, I hope to port this as a web application using Spring Boot to demo with ease between devices.
  
  # Changelog
 ## 10-05-2020
