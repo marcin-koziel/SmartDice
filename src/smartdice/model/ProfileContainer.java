@@ -14,11 +14,17 @@ public class ProfileContainer {
     private final int STRING_LENGTH = 15;
     private final int RECORD_LENGTH = 150;
 
-    private ArrayList<PlayerProfile> playerProfiles;
+    private final ArrayList<PlayerProfile> playerProfiles;
 
-    public ProfileContainer() {
+    private static final ProfileContainer profileContainer = new ProfileContainer();
+
+    private ProfileContainer() {
 //        playerProfiles =  new ArrayList<>();
         playerProfiles = readPlayerContainer();
+    }
+
+    public static ProfileContainer getInstance(){
+        return profileContainer;
     }
 
     public PlayerProfile createPlayerProfile(String username) {
@@ -76,7 +82,6 @@ public class ProfileContainer {
         }
 
         return rafString.toString();
-
     }
 
     private void writePlayerProfile(PlayerProfile playerProfile, RandomAccessFile raf) throws IOException {

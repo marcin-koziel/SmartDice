@@ -7,15 +7,16 @@ package smartdice.model;
 public class SmartDiceGame {
 
 
-    private ProfileContainer profileContainer;
     private PlayerProfile currentPlayerProfile;
     private DiceGame currentDiceGame;
     private int rollLoop;
 
-    private static SmartDiceGame instance = new SmartDiceGame();
+    private final ProfileContainer profileContainer;
+
+    private static final SmartDiceGame smartDiceGame = new SmartDiceGame();
 
     public SmartDiceGame() {
-        profileContainer = new ProfileContainer();
+        profileContainer = ProfileContainer.getInstance();
         currentDiceGame = new DiceGame();
         rollLoop = 10;
         currentPlayerProfile = new PlayerProfile();
@@ -25,7 +26,7 @@ public class SmartDiceGame {
     }
     
     public static SmartDiceGame getInstance(){
-        return instance;
+        return smartDiceGame;
     }
 
     public void setRollLoop(int rollLoop){
