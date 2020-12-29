@@ -1,4 +1,4 @@
-package smartdice;
+package smartdice.controllers;
 
 import java.net.URL;
 import java.util.ResourceBundle;

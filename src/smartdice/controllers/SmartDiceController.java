@@ -3,16 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package smartdice;
+package smartdice.controllers;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
-import javafx.animation.Animation;
 import javafx.animation.TranslateTransition;
-import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -26,8 +24,8 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
-import model.PlayerProfile;
-import model.SmartDiceGame;
+import smartdice.model.PlayerProfile;
+import smartdice.model.SmartDiceGame;
 
 /**
  *
@@ -80,11 +78,11 @@ public class SmartDiceController implements Initializable {
         setNavBarItem.getChildren().setAll(pane);
     }
 
-    // Initialize 2 panes and controllers for Toolbar, Sidebarnav.
+    // Initialize panes and controllers for Toolbar and SideBarNav.
     private void initSmartDiceWindow() {
-        sideBarNavMain = (VBox) getPaneFXMLPath("SideBarNavigationFXML.fxml");
+        sideBarNavMain = (VBox) getPaneFXMLPath("/smartdice/fxml/SideBarNavigationFXML.fxml");
         sideBarNavigationController = SideBarNavigationController.getInstance();
-        toolbarMain = (StackPane) getPaneFXMLPath("ToolbarFXML.fxml");
+        toolbarMain = (StackPane) getPaneFXMLPath("/smartdice/fxml/ToolbarFXML.fxml");
         toolbarController = ToolbarController.getInstance();
         // Setting border anchor panes left and top
         smartDiceMain.setLeft(sideBarNavMain);
@@ -123,12 +121,12 @@ public class SmartDiceController implements Initializable {
             URL location = getClass().getResource(fxmlPath);
             loader.setLocation(location);
             pane = loader.load(location.openStream());
-            controller = loader.getController();
+//            controller = loader.getController();
             // TODO: redo exception
         } catch (IOException e) {
-            System.out.println(e.getMessage());
+            e.printStackTrace();
         } catch (Exception e) {
-            System.out.println(e.getMessage());
+            e.printStackTrace();
         }
         return pane;
     }

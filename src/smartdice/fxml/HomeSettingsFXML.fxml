@@ -16,7 +16,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<StackPane fx:id="stackPaneHomeSettings" prefHeight="575.0" prefWidth="715.0" style="-fx-background-color: rgba(0,0,0,0.4);" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="smartdice.HomeSettingsController">
+<StackPane fx:id="stackPaneHomeSettings" prefHeight="575.0" prefWidth="715.0" style="-fx-background-color: rgba(0,0,0,0.4);" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="smartdice.controllers.HomeSettingsController">
    <children>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="450.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.3" width="550.0" />
       <StackPane maxHeight="450.0" maxWidth="550.0">
@@ -158,7 +158,7 @@
             </VBox>
             <ImageView fx:id="stackPaneHomeSettingsClose" fitHeight="26.0" fitWidth="13.5" pickOnBounds="true" preserveRatio="true" StackPane.alignment="TOP_RIGHT">
                <image>
-                  <Image url="@../img/Icon ionic-ios-close.png" />
+                  <Image url="@../../img/Icon ionic-ios-close.png" />
                </image>
                <StackPane.margin>
                   <Insets right="25.0" top="25.0" />

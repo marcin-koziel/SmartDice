@@ -9,7 +9,7 @@
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane id="AnchorPane" fx:id="smartDiceMain" minHeight="645.0" minWidth="890.0" stylesheets="@smartdicefxml.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="smartdice.SmartDiceController">
+<BorderPane id="AnchorPane" fx:id="smartDiceMain" minHeight="645.0" minWidth="890.0" stylesheets="@../smartdicefxml.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="smartdice.controllers.SmartDiceController">
    <center>
       <BorderPane fx:id="smartDiceInteractive">
          <center>

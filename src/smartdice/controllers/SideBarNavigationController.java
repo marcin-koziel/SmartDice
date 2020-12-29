@@ -1,4 +1,4 @@
-package smartdice;
+package smartdice.controllers;
 
 import java.io.IOException;
 import java.net.URL;
@@ -228,7 +228,7 @@ public class SideBarNavigationController implements Initializable {
     // TODO: Implement Enum for state of window (ex. Home, Dashboard...etc)
     private void initHome() {
         try {
-            FXMLLoader loader = getFXMLLoader("HomeFXML.fxml");
+            FXMLLoader loader = getFXMLLoader("/smartdice/fxml/HomeFXML.fxml");
             homePane = loader.load(loader.getLocation().openStream());
             homeController = loader.getController();
         } catch (IOException e) {
@@ -247,7 +247,7 @@ public class SideBarNavigationController implements Initializable {
 
     private void initDashboard() {
         try {
-            FXMLLoader loader = getFXMLLoader("DashboardFXML.fxml");
+            FXMLLoader loader = getFXMLLoader("/smartdice/fxml/DashboardFXML.fxml");
             dashboardPane = loader.load(loader.getLocation().openStream());
             dashboardController = loader.getController();
         } catch (IOException e) {
@@ -266,7 +266,7 @@ public class SideBarNavigationController implements Initializable {
 
     private void initNotifications() {
         try {
-            FXMLLoader loader = getFXMLLoader("NotificationsFXML.fxml");
+            FXMLLoader loader = getFXMLLoader("/smartdice/fxml/NotificationsFXML.fxml");
             notificationsPane = loader.load(loader.getLocation().openStream());
             notificationsController = loader.getController();
         } catch (IOException e) {
@@ -285,7 +285,7 @@ public class SideBarNavigationController implements Initializable {
 
     private void initCalendar() {
         try {
-            FXMLLoader loader = getFXMLLoader("CalendarFXML.fxml");
+            FXMLLoader loader = getFXMLLoader("/smartdice/fxml/CalendarFXML.fxml");
             calendarPane = loader.load(loader.getLocation().openStream());
             calendarController = loader.getController();
         } catch (IOException e) {
@@ -304,7 +304,7 @@ public class SideBarNavigationController implements Initializable {
 
     private void initSettings() {
         try {
-            FXMLLoader loader = getFXMLLoader("SettingsFXML.fxml");
+            FXMLLoader loader = getFXMLLoader("/smartdice/fxml/SettingsFXML.fxml");
             settingsPane = loader.load(loader.getLocation().openStream());
             settingsController = loader.getController();
         } catch (IOException e) {

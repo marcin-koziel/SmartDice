@@ -1,4 +1,4 @@
-package smartdice;
+package smartdice.controllers;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -15,8 +15,8 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
-import model.PlayerProfile;
-import model.SmartDiceGame;
+import smartdice.model.PlayerProfile;
+import smartdice.model.SmartDiceGame;
 
 /**
  *

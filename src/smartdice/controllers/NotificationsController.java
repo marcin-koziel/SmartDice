@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package smartdice;
+package smartdice.controllers;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -12,9 +12,9 @@ import javafx.fxml.Initializable;
 /**
  * FXML Controller class
  *
- * @author Chukozy
+ * @author Marcin Koziel
  */
-public class CalendarController implements Initializable {
+public class NotificationsController implements Initializable {
 
     /**
      * Initializes the controller class.

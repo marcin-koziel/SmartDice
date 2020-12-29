@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package smartdice;
+package smartdice.controllers;
 
 import java.net.URL;
 import java.util.ArrayList;
@@ -19,13 +19,13 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.input.KeyCode;
-import model.DiceGame;
-import model.SmartDiceGame;
+import smartdice.model.DiceGame;
+import smartdice.model.SmartDiceGame;
 
 /**
  * FXML Controller class
  *
- * @author Chukozy
+ * @author Marcin Koziel
  */
 public class HomeSettingsController implements Initializable {
 

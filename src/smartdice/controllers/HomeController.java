@@ -1,4 +1,4 @@
-package smartdice;
+package smartdice.controllers;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -17,13 +17,13 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.shape.Rectangle;
-import model.DiceGame;
-import model.SmartDiceGame;
+import smartdice.model.DiceGame;
+import smartdice.model.SmartDiceGame;
 
 /**
  * FXML Controller class
  *
- * @author Chukozy
+ * @author Marcin Koziel
  */
 public class HomeController implements Initializable {
 
@@ -141,7 +141,7 @@ public class HomeController implements Initializable {
     private void setSetupGame(MouseEvent event) {
         try {
             FXMLLoader loader = new FXMLLoader();
-            URL location = getClass().getResource("HomeSettingsFXML.fxml");
+            URL location = getClass().getResource("/smartdice/fxml/HomeSettingsFXML.fxml");
             loader.setLocation(location);
             StackPane stackPane = loader.load(location.openStream());
             HomeSettingsController controller = loader.getController();

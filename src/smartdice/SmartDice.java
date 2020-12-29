@@ -8,7 +8,6 @@ package smartdice;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import javafx.scene.control.*;
 import javafx.scene.layout.*;
 import javafx.fxml.FXMLLoader;
 
@@ -31,7 +30,7 @@ public class SmartDice extends Application {
     
     @Override
     public void start(Stage stage) throws Exception{
-        Pane root = FXMLLoader.load(getClass().getResource("SmartDiceFXML.fxml"));
+        Pane root = FXMLLoader.load(getClass().getResource("fxml/SmartDiceFXML.fxml"));
         stage.setTitle("Smart Dice");
         stage.setScene(new Scene(root));
         stage.setMinWidth(890);

@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Rectangle?>
 
-<VBox fx:id="sideBarNavMain" minHeight="645" minWidth="175" stylesheets="@smartdicefxml.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="smartdice.SideBarNavigationController">
+<VBox fx:id="sideBarNavMain" minHeight="645" minWidth="175" stylesheets="@../smartdicefxml.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="smartdice.controllers.SideBarNavigationController">
    <children>
       <AnchorPane fx:id="navBarSideHead" minHeight="70" minWidth="175">
          <children>
@@ -25,7 +25,7 @@
                         <Rectangle fx:id="navBarSideSelectetBackground" fill="rgba(0,0,0,0.1)" height="53" layoutY="5" mouseTransparent="true" width="175" />
                         <ImageView fx:id="navBarSideImgHome" layoutX="25" layoutY="23" mouseTransparent="true">
                            <image>
-                              <Image url="@../img/icon_home.png" />
+                              <Image url="@../../img/icon_home.png" />
                            </image>
                         </ImageView>
                         <ToggleButton fx:id="navBarSideToggleHome" layoutX="51" layoutY="15.75" mouseTransparent="true" text="Home" />
@@ -35,7 +35,7 @@
                      <children>
                         <ImageView fx:id="navBarSideImgDashboard" layoutX="25" layoutY="23" mouseTransparent="true">
                            <image>
-                              <Image url="@../img/icon_dashboard.png" />
+                              <Image url="@../../img/icon_dashboard.png" />
                            </image>
                         </ImageView>
                         <ToggleButton fx:id="navBarSideToggleDashboard" layoutX="52" layoutY="15.75" mouseTransparent="true" text="Dashboard" />
@@ -45,7 +45,7 @@
                      <children>
                         <ImageView fx:id="navBarSideImgNotifications" layoutX="25" layoutY="23" mouseTransparent="true">
                            <image>
-                              <Image url="@../img/icon_chat-room.png" />
+                              <Image url="@../../img/icon_chat-room.png" />
                            </image>
                         </ImageView>
                         <ToggleButton fx:id="navBarSideToggleNotifications" layoutX="52" layoutY="15.75" mouseTransparent="true" text="Notifications" />
@@ -55,7 +55,7 @@
                      <children>
                         <ImageView fx:id="navBarSideImgCalendar" layoutX="25" layoutY="23" mouseTransparent="true">
                            <image>
-                              <Image url="@../img/icon_calendar.png" />
+                              <Image url="@../../img/icon_calendar.png" />
                            </image>
                         </ImageView>
                         <ToggleButton fx:id="navBarSideToggleCalendar" layoutX="52" layoutY="15.75" mouseTransparent="true" text="Calendar" />
@@ -65,7 +65,7 @@
                      <children>
                         <ImageView fx:id="navBarSideImgSettings" layoutX="25" layoutY="23" mouseTransparent="true">
                            <image>
-                              <Image url="@../img/icon_setting.png" />
+                              <Image url="@../../img/icon_setting.png" />
                            </image>
                         </ImageView>
                         <ToggleButton fx:id="navBarSideToggleSettings" layoutX="52" layoutY="15.75" mouseTransparent="true" text="Settings" />

@@ -18,9 +18,9 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="anchorPaneHomeParent" minHeight="575.0" minWidth="715.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="smartdice.HomeController">
+<AnchorPane fx:id="anchorPaneHomeParent" minHeight="575.0" minWidth="715.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="smartdice.controllers.HomeController">
     <stylesheets>
-        <URL value="@smartdicefxml.css" />
+        <URL value="@../smartdicefxml.css" />
     </stylesheets>
 
                 <VBox alignment="TOP_CENTER" prefHeight="575.0" prefWidth="715.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
