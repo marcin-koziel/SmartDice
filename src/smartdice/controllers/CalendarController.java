@@ -5,16 +5,25 @@
  */
 package smartdice.controllers;
 
+import javafx.fxml.Initializable;
+
 import java.net.URL;
 import java.util.ResourceBundle;
-import javafx.fxml.Initializable;
 
 /**
  * FXML Controller class
  *
  * @author Marcin Koziel
  */
-public class CalendarController implements Initializable {
+public class CalendarController extends ClassController<CalendarController> {
+
+    public CalendarController(){
+        super();
+    }
+
+    public CalendarController(String path) {
+        super(path);
+    }
 
     /**
      * Initializes the controller class.
@@ -22,6 +31,6 @@ public class CalendarController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-    }    
+    }
     
 }

@@ -157,11 +157,11 @@ public class ProfileContainer {
     @Override
     public String toString() {
 
-        String str = "";
+        StringBuilder str = new StringBuilder();
 
         for (PlayerProfile playerProfile : playerProfiles){
-            str += playerProfile.toString() + "\n";
+            str.append(playerProfile.toString()).append("\n");
         }
-        return str;
+        return str.toString();
     }
 }

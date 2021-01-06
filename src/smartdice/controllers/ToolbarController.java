@@ -22,7 +22,7 @@ import smartdice.model.SmartDiceGame;
  *
  * @author Marcin Koziel
  */
-public class ToolbarController implements Initializable {
+public class ToolbarController extends ClassController<ToolbarController> {
 
     @FXML
     private VBox vboxToolBarItems;
@@ -39,9 +39,13 @@ public class ToolbarController implements Initializable {
     @FXML
     private GridPane toolBarGridPane;
 
-    private static ToolbarController instance;
+    public ToolbarController(){
+        super();
+    }
 
-
+    public ToolbarController(String fxmlPath) {
+        super(fxmlPath);
+    }
 
 //    // --- Debugging ----
 //    PlayerProfile developerProfile =
@@ -52,12 +56,7 @@ public class ToolbarController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        instance = this;
         setListeners();
-    }
-
-    public static ToolbarController getInstance(){
-        return instance;
     }
 
     private void updateNameLabel(String toolbarName) {
@@ -85,14 +84,24 @@ public class ToolbarController implements Initializable {
 
     // TODO: More functional with arg(s)
     private void signIn(String username, String password) {
+//        SmartDiceController smartDiceController = (SmartDiceController) classControllers.get("smartDice");
+        SmartDiceController smartDiceController = SmartDiceController.getInstance();
+
+        // TODO: Remove the singleton getInstance()
         PlayerProfile playerProfile = SmartDiceGame.getInstance().getProfileContainer().getPlayerProfile(username, password);
         SmartDiceGame.getInstance().setCurrentPlayerProfile(playerProfile);
-        SmartDiceController.getInstance().updateSmartDiceWindow();
+
+        smartDiceController.updateSmartDiceWindow();
     }
     // TODO: More functional with arg(s)
     private void signOut() {
+//        SmartDiceController smartDiceController = (SmartDiceController) classControllers.get("smartDice");
+        SmartDiceController smartDiceController = SmartDiceController.getInstance();
+
+        // TODO: Remove the singleton getInstance()
         SmartDiceGame.getInstance().setCurrentPlayerProfile(new PlayerProfile());
-        SmartDiceController.getInstance().updateSmartDiceWindow();
+
+        smartDiceController.updateSmartDiceWindow();
     }
 
     private void setUserOptions(String toolbarName) {

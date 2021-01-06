@@ -10,6 +10,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.scene.layout.*;
 import javafx.fxml.FXMLLoader;
+import smartdice.controllers.SmartDiceController;
 
 /**
  * SmartDice is an open-source JavaFX application in progress that uses an object-oriented approach
@@ -30,7 +31,9 @@ public class SmartDice extends Application {
     
     @Override
     public void start(Stage stage) throws Exception{
-        Pane root = FXMLLoader.load(getClass().getResource("fxml/SmartDiceFXML.fxml"));
+//        Pane root = FXMLLoader.load(getClass().getResource("fxml/SmartDiceFXML.fxml"));
+//        SmartDiceController smartDiceController = new SmartDiceController("/smartdice/fxml/SmartDiceFXML.fxml");
+        Pane root = new SmartDiceController("/smartdice/fxml/SmartDiceFXML.fxml").getPane();
         stage.setTitle("Smart Dice");
         stage.setScene(new Scene(root));
         stage.setMinWidth(890);

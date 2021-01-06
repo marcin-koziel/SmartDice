@@ -27,7 +27,7 @@ import smartdice.model.SmartDiceGame;
  *
  * @author Marcin Koziel
  */
-public class HomeSettingsController implements Initializable {
+public class HomeSettingsController extends ClassController<HomeSettingsController> {
 
     @FXML
     private StackPane stackPaneHomeSettings;
@@ -68,6 +68,14 @@ public class HomeSettingsController implements Initializable {
 
     private DiceGame diceGameTemp;
     private int rollLoopTemp;
+
+    public HomeSettingsController(){
+        super();
+    }
+
+    public HomeSettingsController(String path) {
+        super(path);
+    }
 
     /*
      * Initializes the controller class.

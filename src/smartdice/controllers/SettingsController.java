@@ -5,21 +5,20 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+
 import javafx.fxml.Initializable;
 import javafx.scene.Group;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.FileChooser;
-import javafx.stage.Stage;
 import smartdice.model.DiceGame;
-import smartdice.model.ProfileContainer;
 import smartdice.model.SmartDiceGame;
 
 /**
  *
  * @author Marcin Koziel
  */
-public class SettingsController implements Initializable {
+public class SettingsController extends ClassController<SettingsController> {
     
     public TextField txtFieldFileChooser;
     public Button btnSelFileChooser;
@@ -28,6 +27,14 @@ public class SettingsController implements Initializable {
     private SmartDiceGame smartDiceGame;
 
     private static String exportPath;
+
+    public SettingsController(){
+        super();
+    }
+
+    public SettingsController(String path) {
+        super(path);
+    }
 
     /**
      * Initializes the controller class.
@@ -83,11 +90,6 @@ public class SettingsController implements Initializable {
             e.printStackTrace();
         }
 
-
     }
 
-
-
-
-    
 }

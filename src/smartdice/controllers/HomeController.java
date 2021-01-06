@@ -25,7 +25,7 @@ import smartdice.model.SmartDiceGame;
  *
  * @author Marcin Koziel
  */
-public class HomeController implements Initializable {
+public class HomeController extends ClassController<HomeController> {
 
     @FXML
     private AnchorPane anchorPaneHomeParent;
@@ -82,7 +82,15 @@ public class HomeController implements Initializable {
 
     private ObservableList<DiceGame> viewDiceGameList;
 
-    private HomeSettingsController homeSettingsController;
+//    private HomeSettingsController homeSettingsController;
+
+    public HomeController(){
+        super();
+    }
+
+    public HomeController(String path) {
+        super(path);
+    }
 
     /**
      * Initializes the controller class.
@@ -92,6 +100,10 @@ public class HomeController implements Initializable {
         initTable();
         updateStats();
         setListeners();
+    }
+
+    public HomeController me(){
+        return this;
     }
 
     private void initTable() {

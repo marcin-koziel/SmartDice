@@ -5,16 +5,25 @@
  */
 package smartdice.controllers;
 
+import javafx.fxml.Initializable;
+
 import java.net.URL;
 import java.util.ResourceBundle;
-import javafx.fxml.Initializable;
 
 /**
  * FXML Controller class
  *
  * @author Marcin Koziel
  */
-public class DashboardController implements Initializable {
+public class DashboardController extends ClassController<DashboardController> {
+
+    public DashboardController(){
+        super();
+    }
+
+    public DashboardController(String path) {
+        super(path);
+    }
 
     /**
      * Initializes the controller class.

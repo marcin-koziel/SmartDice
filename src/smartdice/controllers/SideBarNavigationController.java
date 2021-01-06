@@ -1,6 +1,5 @@
 package smartdice.controllers;
 
-import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
@@ -9,7 +8,6 @@ import javafx.animation.TranslateTransition;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ListView;
 import javafx.scene.control.ToggleButton;
@@ -24,7 +22,7 @@ import javafx.util.Duration;
  *
  * @author Marcin Koziel
  */
-public class SideBarNavigationController implements Initializable {
+public class SideBarNavigationController extends ClassController<SideBarNavigationController> {
 
     @FXML
     private VBox sideBarNavMain;
@@ -75,45 +73,40 @@ public class SideBarNavigationController implements Initializable {
     private ObservableList<AnchorPane> navBarSideObserv;
     private ListView<AnchorPane> navBarSideList;
 
-    // Declared controller(s) for sideBarNavigation pane
-    private HomeController homeController;
-    private DashboardController dashboardController;
-    private NotificationsController notificationsController;
-    private CalendarController calendarController;
-    private SettingsController settingsController;
+    @FXML
+    SmartDiceController smartDiceController;
 
-    // Declared pane(s) for sideBarNavigation pane
-    private AnchorPane homePane;
-    private AnchorPane dashboardPane;
-    private AnchorPane notificationsPane;
-    private AnchorPane calendarPane;
-    private AnchorPane settingsPane;
+    public SideBarNavigationController(){
+        super();
+    }
 
-    // Declared primary instance to be referenced
-    private static SideBarNavigationController instance;
+    public SideBarNavigationController(String fxmlPath) {
+        super(fxmlPath);
+    }
+
+    public SideBarNavigationController(String fxmlPath, SmartDiceController smartDiceController) {
+        super(fxmlPath);
+    }
 
     /**
      * Initializes the controller class
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        instance = this;
-        initHome();
-        initDashboard();
-        initNotifications();
-        initCalendar();
-        initSettings();
+        classControllers.put("home", new HomeController("/smartdice/fxml/HomeFXML.fxml"));
+        classControllers.put("dashboard", new DashboardController("/smartdice/fxml/DashboardFXML.fxml"));
+        classControllers.put("notifications", new NotificationsController("/smartdice/fxml/NotificationsFXML.fxml"));
+        classControllers.put("calendar", new CalendarController("/smartdice/fxml/CalendarFXML.fxml"));
+        classControllers.put("settings", new SettingsController("/smartdice/fxml/SettingsFXML.fxml"));
         initSideNavBar();
     }
 
-    /**
-     * @return Returns the primary sideBarNavigation Controller to be referenced
-     */
-    public static SideBarNavigationController getInstance(){
-        return instance;
-    }
-
     private void initSideNavBar() {
+        SmartDiceController smartDiceController = SmartDiceController.getInstance();
+
+//        SmartDiceController smartDiceController = (SmartDiceController) classControllers.get("smartDice");
+
+
         ToggleGroup toggleGroup = new ToggleGroup();
 
         navBarPaneList = new ArrayList<>();
@@ -177,21 +170,21 @@ public class SideBarNavigationController implements Initializable {
             });
         }
 
-        // Toggles on-select       
+        // Toggles on-select
         navBarSideToggleHome.selectedProperty().addListener(l->{
-            SmartDiceController.getInstance().setMainPane(getHomePane());
+            smartDiceController.setMainPane(getHomePane());
         });
         navBarSideToggleDashboard.selectedProperty().addListener(l->{
-            SmartDiceController.getInstance().setMainPane(getDashboardPane());
+            smartDiceController.setMainPane(getDashboardPane());
         });
         navBarSideToggleNotifications.selectedProperty().addListener(l->{
-            SmartDiceController.getInstance().setMainPane(getNotificationsPane());
+            smartDiceController.setMainPane(getNotificationsPane());
         });
         navBarSideToggleCalendar.selectedProperty().addListener(l->{
-            SmartDiceController.getInstance().setMainPane(getCalendarPane());
+            smartDiceController.setMainPane(getCalendarPane());
         });
         navBarSideToggleSettings.selectedProperty().addListener(l->{
-            SmartDiceController.getInstance().setMainPane(getSettingsPane());
+            smartDiceController.setMainPane(getSettingsPane());
         });
 
         // Pane(s)/tabs clicked on in sidebar nav.
@@ -211,114 +204,64 @@ public class SideBarNavigationController implements Initializable {
             navBarSideToggleSettings.setSelected(true);
         });
 
+//        // TODO: Check the purpose
+//        navBarSideHome.getStyleClass().add("ipane");
+
         // Set Default selected toggleButton
         navBarSideToggleHome.setSelected(true);
-        // TODO: Check the purpose
-        navBarSideHome.getStyleClass().add("ipane");
 
-    }
-
-    public FXMLLoader getFXMLLoader(String path) {
-        FXMLLoader loader = new FXMLLoader();
-        URL location = getClass().getResource(path);
-        loader.setLocation(location);
-        return loader;
-    }
-
-    // TODO: Implement Enum for state of window (ex. Home, Dashboard...etc)
-    private void initHome() {
-        try {
-            FXMLLoader loader = getFXMLLoader("/smartdice/fxml/HomeFXML.fxml");
-            homePane = loader.load(loader.getLocation().openStream());
-            homeController = loader.getController();
-        } catch (IOException e) {
-            //TODO: Show error window
-            e.printStackTrace();
-        }
-    }
-
-    public AnchorPane getHomePane() {
-        return homePane;
     }
 
     public HomeController getHomeController() {
-        return homeController;
+        HomeController homeController = (HomeController) classControllers.get("home");
+        return homeController.getController();
     }
 
-    private void initDashboard() {
-        try {
-            FXMLLoader loader = getFXMLLoader("/smartdice/fxml/DashboardFXML.fxml");
-            dashboardPane = loader.load(loader.getLocation().openStream());
-            dashboardController = loader.getController();
-        } catch (IOException e) {
-            //TODO: Show error window
-            System.out.println(e.getMessage());
-        }
-    }
-
-    public AnchorPane getDashboardPane() {
-        return dashboardPane;
+    public AnchorPane getHomePane() {
+        HomeController homeController = (HomeController) classControllers.get("home");
+        return (AnchorPane) homeController.getPane();
     }
 
     public DashboardController getDashboardController() {
-        return dashboardController;
+        DashboardController dashboardController = (DashboardController) classControllers.get("dashboard");
+        return dashboardController.getController();
     }
 
-    private void initNotifications() {
-        try {
-            FXMLLoader loader = getFXMLLoader("/smartdice/fxml/NotificationsFXML.fxml");
-            notificationsPane = loader.load(loader.getLocation().openStream());
-            notificationsController = loader.getController();
-        } catch (IOException e) {
-            //TODO: Show error window
-            System.out.println(e.getMessage());
-        }
-    }
-
-    public AnchorPane getNotificationsPane() {
-        return notificationsPane;
+    public AnchorPane getDashboardPane() {
+        DashboardController dashboardController = (DashboardController) classControllers.get("dashboard");
+        return (AnchorPane) dashboardController.getPane();
     }
 
     public NotificationsController getNotificationsController() {
-        return notificationsController;
+        NotificationsController notificationsController = (NotificationsController) classControllers.get("notifications");
+        return notificationsController.getController();
     }
 
-    private void initCalendar() {
-        try {
-            FXMLLoader loader = getFXMLLoader("/smartdice/fxml/CalendarFXML.fxml");
-            calendarPane = loader.load(loader.getLocation().openStream());
-            calendarController = loader.getController();
-        } catch (IOException e) {
-            //TODO: Show error window
-            System.out.println(e.getMessage());
-        }
-    }
-
-    public AnchorPane getCalendarPane() {
-        return calendarPane;
+    public AnchorPane getNotificationsPane() {
+        NotificationsController notificationsController = (NotificationsController) classControllers.get("notifications");
+        return (AnchorPane) notificationsController.getPane();
     }
 
     public CalendarController getCalendarController() {
-        return calendarController;
+        CalendarController calendarController = (CalendarController) classControllers.get("calendar");
+        return calendarController.getController();
     }
 
-    private void initSettings() {
-        try {
-            FXMLLoader loader = getFXMLLoader("/smartdice/fxml/SettingsFXML.fxml");
-            settingsPane = loader.load(loader.getLocation().openStream());
-            settingsController = loader.getController();
-        } catch (IOException e) {
-            //TODO: Show error window
-            System.out.println(e.getMessage());
-        }
-    }
-
-    public AnchorPane getSettingsPane() {
-        return settingsPane;
+    public AnchorPane getCalendarPane() {
+        CalendarController calendarController = (CalendarController) classControllers.get("calendar");
+        return (AnchorPane) calendarController.getPane();
     }
 
     public SettingsController getSettingsController() {
-        return settingsController;
+        SettingsController settingsController = (SettingsController) classControllers.get("settings");
+        return settingsController.getController();
     }
+
+    public AnchorPane getSettingsPane() {
+        SettingsController settingsController = (SettingsController) classControllers.get("settings");
+        return (AnchorPane) settingsController.getPane();
+    }
+
+
 
 }

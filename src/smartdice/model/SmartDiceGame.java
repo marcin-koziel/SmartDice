@@ -6,7 +6,6 @@ package smartdice.model;
  */
 public class SmartDiceGame {
 
-
     private PlayerProfile currentPlayerProfile;
     private DiceGame currentDiceGame;
     private int rollLoop;

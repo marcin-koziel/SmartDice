@@ -5,16 +5,25 @@
  */
 package smartdice.controllers;
 
+import javafx.fxml.Initializable;
+
 import java.net.URL;
 import java.util.ResourceBundle;
-import javafx.fxml.Initializable;
 
 /**
  * FXML Controller class
  *
  * @author Marcin Koziel
  */
-public class NotificationsController implements Initializable {
+public class NotificationsController extends ClassController<NotificationsController> {
+
+    public NotificationsController(){
+        super();
+    }
+
+    public NotificationsController(String path) {
+        super(path);
+    }
 
     /**
      * Initializes the controller class.
