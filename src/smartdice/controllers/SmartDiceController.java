@@ -5,7 +5,6 @@
  */
 package smartdice.controllers;
 
-import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
@@ -13,8 +12,6 @@ import java.util.ResourceBundle;
 import javafx.animation.TranslateTransition;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.scene.control.ListView;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.layout.Pane;
@@ -22,8 +19,6 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
-import javafx.scene.paint.Color;
-import javafx.scene.text.Font;
 import smartdice.SmartDice;
 import smartdice.model.PlayerProfile;
 import smartdice.model.SmartDiceGame;
@@ -35,15 +30,21 @@ import smartdice.model.SmartDiceGame;
 public class SmartDiceController extends ClassController<SmartDice> {
 
     @FXML
-    private BorderPane smartDiceMain;
+    private BorderPane smartDiceRootBorderPane;
     @FXML
-    private BorderPane smartDiceInteractive;
+    private BorderPane smartDiceCenterBorderPane;
     @FXML
-    private AnchorPane setNavBarItem;
+    private AnchorPane smartDiceCenterAnchorPane;
     @FXML
-    private Font x3;
+    private static ToolbarController toolbarController;
     @FXML
-    private Color x4;
+    private static SideBarNavigationController sideBarNavigationController;
+    @FXML
+    private StackPane toolbarPane;
+    @FXML
+    private VBox sideBarNavPane;
+
+    private static SmartDiceController smartDiceController;
 
     private ArrayList<AnchorPane> navBarPaneList;
     private ArrayList<ToggleButton> navBarList;
@@ -53,19 +54,13 @@ public class SmartDiceController extends ClassController<SmartDice> {
     private ObservableList<AnchorPane> navBarSideObserv;
     private ListView<AnchorPane> navBarSideList;
 
-    @FXML
-    private static ToolbarController toolbarController;
-    @FXML
-    private static SideBarNavigationController sideBarNavigationController;
+    public SmartDiceController(){
+        super();
+    }
 
-    @FXML
-    private StackPane toolbarMain;
-
-    @FXML
-    private VBox sideBarNavMain;
-
-    @FXML
-    private static SmartDiceController smartDiceController;
+    public SmartDiceController(String fxml){
+        super(fxml);
+    }
 
     /**
      * Initializes the controller class.
@@ -76,85 +71,55 @@ public class SmartDiceController extends ClassController<SmartDice> {
         initSmartDiceWindow();
     }
 
-//     Return the main SmartDice controller instance
+    // Return the main SmartDice controller instance
     public static SmartDiceController getInstance() {
         return smartDiceController;
     }
 
-    public SmartDiceController(){
-        super();
-    }
-
-    public SmartDiceController(String fxml){
-        super(fxml);
-    }
-
-//     Initialize panes and controllers for Toolbar and SideBarNav.
+    // Initialize panes and controllers for Toolbar and SideBarNav.
     private void initSmartDiceWindow() {
         sideBarNavigationController = new SideBarNavigationController("/smartdice/fxml/SideBarNavigationFXML.fxml");
         toolbarController = new ToolbarController("/smartdice/fxml/ToolbarFXML.fxml");
 
-        sideBarNavigationController.addClassTable("smartDice" ,smartDiceController);
-        toolbarController.addClassTable("smartDice" ,smartDiceController);
+//        sideBarNavigationController.addClassTable("smartDice" ,smartDiceController);
+//        toolbarController.addClassTable("smartDice" ,smartDiceController);
 
-        sideBarNavMain = (VBox) sideBarNavigationController.getPane();
+        sideBarNavPane = (VBox) sideBarNavigationController.getPane();
         sideBarNavigationController = sideBarNavigationController.getController();
 
-        toolbarMain = (StackPane) toolbarController.getPane();
+        toolbarPane = (StackPane) toolbarController.getPane();
         toolbarController = toolbarController.getController();
 
         // Setting border anchor panes left and top
-        smartDiceMain.setLeft(sideBarNavMain);
-        smartDiceInteractive.setTop(toolbarMain);
-//        sideBarNavigationController.setDefaultTab();
+        smartDiceRootBorderPane.setLeft(sideBarNavPane);
+        smartDiceCenterBorderPane.setTop(toolbarPane);
+        // sideBarNavigationController.setDefaultTab();
 
-        // Update view to current model properties
-        updateSmartDiceWindow();
+        // Update view based on login status
+        updateLoginStatus();
     }
 
-    // Updates relevant panes to current model properties
-    public void updateSmartDiceWindow() {
+    // Update the according panes for view based on login status
+    public void updateLoginStatus() {
         PlayerProfile loadProfile = SmartDiceGame.getInstance().getCurrentPlayerProfile();
 
         toolbarController.updateToolbar(loadProfile);
 
-        //TODO: Profile Username is referred to for now (intending to use ID)
+        //TODO: Profile Username is referred to for now (intend to use ID) + Encapsulation
         if (loadProfile.getUsername() != null) {
-            setNavBarItem.setDisable(false);
+            smartDiceCenterAnchorPane.setDisable(false);
+            sideBarNavPane.setDisable(false);
         } else {
-            setNavBarItem.setDisable(true);
+            smartDiceCenterAnchorPane.setDisable(true);
+            sideBarNavPane.setDisable(true);
         }
 
-        //TODO: Switch for Enum state, effectively not updating all panes, just the active one
         sideBarNavigationController.getHomeController().updateStats();
-
-        // --- DEBUGGING ---
-//        System.out.println(SmartDiceGame.getInstance().getCurrentPlayerProfile().toString());
-
     }
 
     // Setting the interactive section on the main window
     public void setMainPane(Pane pane) {
-        setNavBarItem.getChildren().setAll(pane);
-    }
-
-    // Used to crunch down fxml loader code and return the pane based on fxmlPath
-    private Pane getPaneFXMLPath(String fxmlPath) {
-        Pane pane = null;
-        FXMLLoader controller = null;
-        try {
-            FXMLLoader loader = new FXMLLoader();
-            URL location = getClass().getResource(fxmlPath);
-            loader.setLocation(location);
-            pane = loader.load(location.openStream());
-//            controller = loader.getController();
-            // TODO: redo exception
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return pane;
+        smartDiceCenterAnchorPane.getChildren().setAll(pane);
     }
 
 }
