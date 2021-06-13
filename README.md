@@ -1,31 +1,45 @@
 # SmartDice
 
 ## Summary
-SmartDice is an open-source JavaFX application in production that uses an object-oriented approach for generating data, in which case is "rolling dice" and updating users' profile data accordingly. The "Smart" aspect is to implement a user-friendly feature that uses Machine Learning (ML) to explore the realm of probability and display it in a human-interpretable manner when enabled. Upon further development, I hope to port this as a web application using Spring Boot to demo with ease between devices.
+SmartDice is a JavaFX work-in-progress application used to generate "random" player data. The "Smart" aspect comes from merging a Machine Learning model to learn and forecast time-sensitive strategies to allow users to explore probability and displayed it in a human-interpretable manner when enabled.
  
- # Changelog
-## 10-05-2020
-### Added
-
-- Generate a mass number of dice rounds that are labeled (ID, Timestamp, Results, etc., some examples)
-- User-friendly settings for the round(s)
-- View real-time stats under the results of rolling
-
 # Future Goals
 ### Short-term goals
-- Export data in CSV format
-- Functional create, remove, sign-in, and sign-out of user profile(s)
-- Simulate more than one account rolling dice
-- Add more statistics that are hardcoded (ex. Linear regression)
-- Add functional tabs (Dashboard. Notifications, Calendar, Settings)
-- Add JavaDoc
-- Clean-up code and add comments for open-source usability + JavaDocs
+- Export data
+   - [x] CSV format
+   - [ ] JSON format
+- Functional
+   - [x] Sign-in and sign-out of existing profile(s)
+   - [ ] Create profile(s)
+   - [ ] Remove profile(s)
+- Multi-threading
+   - [ ] Simulate more than one account rolling dice
+- Visualizations
+   - [x] Line Chart (Roll No.)
+   - [ ] Linear Regression
+   - [ ] ML output predictions
+- Navigation
+   - [x] Home / Dice Game
+   - [x] Dashboard
+   - [x] Notifications
+   - [x] Calendar
+   - [x] Settings
+   - [ ] Toolbar Search Bar
+- Window Content
+   - [ ] Home / Dice Game
+   - [ ] Dashboard
+   - [ ] Notifications
+   - [ ] Calendar
+   - [ ] Settings
+- JavaDoc
+   - [ ] Classes
+   - [ ] Methods
 
 ### Long-term goals
-- Python embedded in Java
-- Database infrastructure
-- Toggle Smart function using ML in the background (Long Term Short Memory Algorithm)
-- Looking into other models such as Generative adversarial network (GAN)
+- [ ] Embed Python locally (w/ cached ML model)
+- [ ] Database infrastructure
+   - [ ] Player Data
+   - [ ] GET Requests (ML model output) 
 
 # Screenshot
 ![drive-image](https://drive.google.com/uc?export=view&id=1IR4xdNNL6ltOyGkCots2JP0USK5riyrW)
