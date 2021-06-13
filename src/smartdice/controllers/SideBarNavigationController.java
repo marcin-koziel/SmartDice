@@ -25,7 +25,7 @@ import javafx.util.Duration;
 public class SideBarNavigationController extends ClassController<SideBarNavigationController> {
 
     @FXML
-    private VBox sideBarNavMain;
+    private VBox sideBarNavPane;
     @FXML
     private AnchorPane navBarSideHead;
     @FXML
