@@ -3,8 +3,8 @@
 ## Summary
 SmartDice is a JavaFX work-in-progress application used to generate "random" player data. The "Smart" aspect comes from merging a Machine Learning model to learn and forecast time-sensitive strategies to allow users to explore probability and displayed it in a human-interpretable manner when enabled.
  
-# Future Goals
-### Short-term goals
+## Milestones
+### Short-term
 - Export data
    - [x] CSV format
    - [ ] JSON format
@@ -35,7 +35,7 @@ SmartDice is a JavaFX work-in-progress application used to generate "random" pla
    - [ ] Classes
    - [ ] Methods
 
-### Long-term goals
+### Long-term
 - [ ] Embed Python locally (Cached ML model)
 - Database infrastructure
    - [ ] Player Data
