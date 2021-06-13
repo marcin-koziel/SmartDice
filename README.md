@@ -37,7 +37,7 @@ SmartDice is a JavaFX work-in-progress application used to generate "random" pla
 
 ### Long-term goals
 - [ ] Embed Python locally (w/ cached ML model)
-- [ ] Database infrastructure
+- Database infrastructure
    - [ ] Player Data
    - [ ] GET Requests (ML model output) 
 
