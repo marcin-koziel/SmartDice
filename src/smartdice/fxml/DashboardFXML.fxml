@@ -3,11 +3,13 @@
 <?import java.net.URL?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.StackPane?>
 
-<AnchorPane id="AnchorPane" minHeight="575.0" minWidth="715.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="smartdice.controllers.DashboardController">
+<AnchorPane id="AnchorPane" minHeight="575.0" minWidth="715.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="smartdice.controllers.DashboardController">
     <stylesheets>
         <URL value="@../smartdicefxml.css" />
     </stylesheets>
-    <Label layoutX="328.0" layoutY="271.0" text="Dashboard" />
-   <Label layoutX="307.0" layoutY="288.0" text="is in maintenance..." />
+   <StackPane fx:id="chartPane" layoutX="30.0" layoutY="30.0" AnchorPane.bottomAnchor="150.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="30.0" />
+    <Label layoutX="329.0" layoutY="470.0" text="Dashboard" />
+   <Label layoutX="308.0" layoutY="487.0" text="is in maintenance..." />
 </AnchorPane>
