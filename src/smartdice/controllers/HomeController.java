@@ -107,7 +107,6 @@ public class HomeController extends ClassController<HomeController> {
     }
 
     private void initTable() {
-        // TODO: Make this more "readable" ? 
         homeTable.setPlaceholder(new Label("No Record of Dice Games found."));
         idColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
         timeColumn.setCellValueFactory(new PropertyValueFactory<>("dateFmt"));
@@ -129,6 +128,7 @@ public class HomeController extends ClassController<HomeController> {
         if (SmartDiceGame.getInstance().isPlayable()) {
             SmartDiceGame.getInstance().playRound();
             updateStats();
+            DashboardController.getInstance().updateScatterChart();
             viewDiceGameList.add(SmartDiceGame.getInstance().getCurrentPlayerProfile().getPlayerStat().getLastDiceGameRound());
             homeTable.sort();
         } else {
