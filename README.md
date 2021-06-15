@@ -1,14 +1,14 @@
 # SmartDice
 
 ## Summary
-SmartDice is a JavaFX application aimed to generate and plot varied "random" player data. The "smart" aspect comes from merging a machine learning model to learn and forecast time-sensitive strategies to allow users to explore probability and display results in a human-interpretable manner when enabled.
+SmartDice is a JavaFX application aimed to generate and plot varied "random" player data. The "smart" aspect comes from merging a machine learning model to learn and forecast time-sensitive strategies to allow users to explore probability within the user interface and display results in a human-interpretable manner.
  
 ## Milestones
 ### Short-term
 - Export data
    - [x] CSV format
    - [ ] JSON format
-- User Profiles
+- User Profile
    - [x] Sign-in and sign-out of existing profile(s)
    - [ ] Create profile(s)
    - [ ] Remove profile(s)
@@ -16,7 +16,7 @@ SmartDice is a JavaFX application aimed to generate and plot varied "random" pla
    - [ ] Simulate more than one profile rolling dice
    - [ ] Asynchronous functionality
    - [ ] Higher performance (e.g. faster simulated results)
-- Visualizations
+- Visualization
    - [x] Line Chart (Roll No.)
    - [ ] Linear Regression
    - [ ] ML model output predictions
