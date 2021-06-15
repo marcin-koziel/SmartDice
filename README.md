@@ -27,7 +27,7 @@ SmartDice is a JavaFX application aimed to generate and plot varied "random" pla
    - [x] Calendar
    - [x] Settings
    - [ ] Toolbar Search Bar
-- Window Content
+- Fully functional pages (i.e. Complete enough to work as intended)
    - [ ] Home / Dice Game
    - [ ] Dashboard
    - [ ] Notifications
