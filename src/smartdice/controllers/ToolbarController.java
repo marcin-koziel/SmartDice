@@ -47,10 +47,6 @@ public class ToolbarController extends ClassController<ToolbarController> {
         super(fxmlPath);
     }
 
-//    // --- Debugging ----
-//    PlayerProfile developerProfile =
-//            SmartDiceGame.getInstance().getProfileContainer().createPlayerProfile("Developer");
-
     /**
      * Initializes the controller class.
      */
@@ -69,8 +65,14 @@ public class ToolbarController extends ClassController<ToolbarController> {
         Label usernameLbl = new Label("Username");
         Label passwordLbl = new Label("Password");
 
+        // --- Debugging ----
         TextField usernameTxtfld = new TextField("Developer");
         TextField passwordTxtfld = new TextField("1234");
+
+        PlayerProfile developerProfile =
+                SmartDiceGame.getInstance().getProfileContainer().createPlayerProfile("Developer");
+
+        // --- --- --- ---
 
         Button signIn = new Button("Sign In");
 
@@ -82,16 +84,16 @@ public class ToolbarController extends ClassController<ToolbarController> {
         vboxToolBarItems.getChildren().addAll(usernameLbl, usernameTxtfld, passwordLbl, passwordTxtfld, signIn);
     }
 
-    // TODO: More functional with arg(s)
+    // TODO: Catch exception for wrong login cred.
     private void signIn(String username, String password) {
 //        SmartDiceController smartDiceController = (SmartDiceController) classControllers.get("smartDice");
+        // TODO: Encapsulation
         SmartDiceController smartDiceController = SmartDiceController.getInstance();
 
-        // TODO: Remove the singleton getInstance()
         PlayerProfile playerProfile = SmartDiceGame.getInstance().getProfileContainer().getPlayerProfile(username, password);
         SmartDiceGame.getInstance().setCurrentPlayerProfile(playerProfile);
 
-        smartDiceController.updateSmartDiceWindow();
+        smartDiceController.updateLoginStatus();
     }
     // TODO: More functional with arg(s)
     private void signOut() {
@@ -101,7 +103,7 @@ public class ToolbarController extends ClassController<ToolbarController> {
         // TODO: Remove the singleton getInstance()
         SmartDiceGame.getInstance().setCurrentPlayerProfile(new PlayerProfile());
 
-        smartDiceController.updateSmartDiceWindow();
+        smartDiceController.updateLoginStatus();
     }
 
     private void setUserOptions(String toolbarName) {
