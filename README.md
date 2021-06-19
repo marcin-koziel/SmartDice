@@ -1,7 +1,7 @@
 # SmartDice
 
 ## Summary
-SmartDice is a JavaFX application aimed to generate and plot varied "random" player data. The "smart" aspect comes from merging a machine learning model to learn and forecast time-sensitive strategies to allow users to explore probability within the user interface and display results in a human-interpretable manner.
+SmartDice generates then visualizes a tuned series of random data using JavaFX. With a Long Term Short Memory (LSTM) algorithm, a model is trained upon initialization and tries to learn any relationship between the inputs and outputs, then returns real-time forecasted time-sensitive strategies to allow users to explore probability tweaking inputs within the user interface.
  
 ## Milestones
 ### Short-term
