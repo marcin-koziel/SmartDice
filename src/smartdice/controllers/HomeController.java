@@ -107,7 +107,7 @@ public class HomeController extends ClassController<HomeController> {
     }
 
     private void initTable() {
-        homeTable.setPlaceholder(new Label("No Record of Dice Games found."));
+        homeTable.setPlaceholder(new Label("No record of rounds found"));
         idColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
         timeColumn.setCellValueFactory(new PropertyValueFactory<>("dateFmt"));
         multiplierColumn.setCellValueFactory(new PropertyValueFactory<>("multiplierStrFmt"));
