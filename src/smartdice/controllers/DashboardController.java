@@ -29,8 +29,10 @@ public class DashboardController extends ClassController<DashboardController> {
 
     @FXML
     private StackPane chartPane;
+
     private LineChart<Number, Number> scatterChart;  // LineChart - Roll No.
-    private XYChart.Series series;  // Roll No.
+    private XYChart.Series seriesRollNo;
+    private final int MAX_WINDOW = 80;  // In addition to the main chart, to be used elsewhere...
 
     PlayerProfile currentPlayerProfile;
 
@@ -50,7 +52,7 @@ public class DashboardController extends ClassController<DashboardController> {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        scatterChart = createChart();
+        scatterChart = initDashboardChart();
         chartPane.getChildren().add(scatterChart);
         dashboardController = this; // TODO: Encapsulation
     }
@@ -58,7 +60,7 @@ public class DashboardController extends ClassController<DashboardController> {
     // TODO: Encapsulation
     public static DashboardController getInstance() {return dashboardController;}
 
-    private LineChart<Number, Number> createChart() {
+    private LineChart<Number, Number> initDashboardChart() {
 
         currentPlayerProfile = SmartDiceGame.getInstance().getCurrentPlayerProfile();
 
@@ -69,26 +71,26 @@ public class DashboardController extends ClassController<DashboardController> {
         final LineChart<Number,Number> sc = new LineChart<>(xAxis,yAxis);
 
         // setup chart
-        sc.setTitle("Line Chart");
+//        sc.setTitle("Linear Regression");
         xAxis.setLabel("Dice Rounds");
         xAxis.setAnimated(false);
-        yAxis.setLabel("Dice Range");
+        yAxis.setLabel("Roll Range");
         yAxis.setAutoRanging(false);
 
         // add starting data
-        series = new ScatterChart.Series<Number,Number>();
-        series.setName("Roll Number");
+        seriesRollNo = new ScatterChart.Series<Number,Number>();
+        seriesRollNo.setName("Roll Number");
 
         for (int i = 0; i < currentPlayerProfile.getPlayerStat().getDiceGameList().size(); i++) {
-            series.getData().add(
-                    new ScatterChart.Data<Number, Number>(
-                            i+1,
-                            currentPlayerProfile.getPlayerStat().getDiceGameList().get(i).getDiceRoll()
-                    )
+            seriesRollNo.getData().add(
+                new ScatterChart.Data<Number, Number>(
+                        i+1,
+                        currentPlayerProfile.getPlayerStat().getDiceGameList().get(i).getDiceRoll()
+                )
             );
         }
 
-        sc.getData().add(series);
+        sc.getData().add(seriesRollNo);
         return sc;
     }
 
@@ -96,12 +98,18 @@ public class DashboardController extends ClassController<DashboardController> {
 
         currentPlayerProfile = SmartDiceGame.getInstance().getCurrentPlayerProfile();
 
-        scatterChart.getData().get(0).getData().add(
+        if (seriesRollNo.getData().size() > MAX_WINDOW) {
+            seriesRollNo.getData().remove(0);
+        }
+
+        seriesRollNo.getData().add(
                 new ScatterChart.Data<>(
                         currentPlayerProfile.getPlayerStat().getDiceGameList().size(),
                         currentPlayerProfile.getPlayerStat().getLastDiceGameRoundRoll()
                 )
         );
+
+
 
     }
 
